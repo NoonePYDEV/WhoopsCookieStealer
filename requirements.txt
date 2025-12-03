@@ -1,0 +1,4 @@
+pythonforwindows
+requests
+pycryptodome
+pyinstaller
