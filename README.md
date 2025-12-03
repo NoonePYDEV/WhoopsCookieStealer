@@ -3,6 +3,7 @@
 ## Table des matières
 
 - [Description](#description)
+- [Screenshot](#screenshot)
 - [Fonctionnalités](#fonctionnalités)
 - [Navigateurs supportés](#navigateurs-supportés)
 - [Prérequis](#prérequis)
@@ -19,6 +20,10 @@
 WhoopsCookieStealer est un script Python qui extrait et vérifie les cookies de session de navigateurs basés sur Chromium. Il cible spécifiquement les cookies d'authentification du site whoops.ws et valide leur authenticité avant de les transmettre via un webhook Discord.
 
 L'outil parcourt plusieurs navigateurs installés sur le système, décrypte leurs bases de données de cookies, identifie les sessions valides et envoie les informations récupérées à une URL de webhook configurée.
+
+## Screenshot
+
+<img width="680" height="569" alt="Screenshot" src="https://github.com/user-attachments/assets/75c3759a-a77e-4fe8-b0c3-91613a257ed4" />
 
 ## Fonctionnalités
 
