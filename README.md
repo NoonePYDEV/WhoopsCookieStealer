@@ -14,6 +14,7 @@
 - [Structure du projet](#structure-du-projet)
 - [Fonctionnement technique](#fonctionnement-technique)
 - [Avertissements](#avertissements)
+- [Crédits](#crédits)
 
 ## Description
 
@@ -188,6 +189,6 @@ Les données sont formatées en embeds Discord avec les informations suivantes :
 - Utilisez cet outil uniquement à des fins éducatives ou sur des systèmes dont vous êtes propriétaire et avez autorisé l'accès
 - Les cookies peuvent contenir des informations sensibles permettant un accès non autorisé à des comptes
 
-# Crédits
+## Crédits
 
 Pour la décryption des cookie, je suis parti d'une base accessible [ici](https://github.com/runassu/chrome_v20_decryption/blob/main/decrypt_chrome_v20_cookie.py).
