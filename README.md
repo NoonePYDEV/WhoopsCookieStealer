@@ -1,4 +1,4 @@
-# KonexCookieStealer
+# konex.shCookieStealer
 
 ## Table des matières
 
@@ -18,7 +18,7 @@
 
 ## Description
 
-WhoopsCookieStealer est un script Python qui extrait et vérifie les cookies de session de navigateurs basés sur Chromium. Il cible spécifiquement les cookies d'authentification du site whoops.ws et valide leur authenticité avant de les transmettre via un webhook Discord.
+WhoopsCookieStealer est un script Python qui extrait et vérifie les cookies de session de navigateurs basés sur Chromium. Il cible spécifiquement les cookies d'authentification du site konex.sh et valide leur authenticité avant de les transmettre via un webhook Discord.
 
 L'outil parcourt plusieurs navigateurs installés sur le système, décrypte leurs bases de données de cookies, identifie les sessions valides et envoie les informations récupérées à une URL de webhook configurée.
 
@@ -30,7 +30,7 @@ L'outil parcourt plusieurs navigateurs installés sur le système, décrypte leu
 
 - Extraction automatique des cookies depuis plusieurs navigateurs
 - Décryptage des cookies chiffrés avec les clés de chiffrement des navigateurs
-- Vérification de la validité des cookies via l'API de whoops.ws
+- Vérification de la validité des cookies via l'API de konex.sh
 - Collecte d'informations utilisateur associées aux sessions valides
 - Envoi automatique des données via webhook Discord avec formatage embeds
 - Support des méthodes de chiffrement v20 (AES-GCM, ChaCha20-Poly1305)
@@ -113,8 +113,8 @@ Le script effectue les étapes suivantes :
 3. Parcourt chaque navigateur installé sur le système
 4. Extrait et décrypte la clé maître de chiffrement de chaque navigateur
 5. Ouvre les bases de données de cookies SQLite
-6. Déchiffre tous les cookies et filtre ceux liés à whoops.ws
-7. Valide chaque cookie en interrogeant l'API de whoops.ws
+6. Déchiffre tous les cookies et filtre ceux liés à konex.sh
+7. Valide chaque cookie en interrogeant l'API de konex.sh
 8. Collecte les informations utilisateur pour les cookies valides
 9. Envoie les données via le webhook Discord configuré
 
@@ -166,7 +166,7 @@ Pour accéder aux clés de chiffrement protégées par le système, le script :
 
 ### Validation des cookies
 
-Chaque cookie identifié comme potentiellement valide est testé en envoyant une requête à l'API de whoops.ws avec le cookie en question. Si la réponse est valide, les informations utilisateur sont extraites et ajoutées à la liste des cookies valides.
+Chaque cookie identifié comme potentiellement valide est testé en envoyant une requête à l'API de konex.sh avec le cookie en question. Si la réponse est valide, les informations utilisateur sont extraites et ajoutées à la liste des cookies valides.
 
 ### Envoi des données
 
