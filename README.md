@@ -137,7 +137,7 @@ Options de compilation utilisées :
 
 ```
 KonexCookieStealer/
-├── WhoopsCookieStealer.py    # Script principal
+├── KonexCookieStealer.py    # Script principal
 ├── requirements.txt          # Dépendances Python
 ├── Compile.bat               # Script de compilation
 ├── Quick Setup.bat           # Script d'installation rapide
