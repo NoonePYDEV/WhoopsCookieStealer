@@ -1,4 +1,4 @@
-# WhoopsCookieStealer
+# KonexCookieStealer
 
 ## Table des matières
 
