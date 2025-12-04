@@ -401,7 +401,7 @@ def send_datas_to_webhook(webhook_url: str, datas: list[dict]) -> None:
             ]
         }
 
-        payload = {"embeds": [embed]}
+        payload = {"username": "KonexRecovery", "embeds": [embed]}
 
         try:
             r = requests.post(webhook_url, json=payload)
